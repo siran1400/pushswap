@@ -9,10 +9,7 @@
 t_stack	*ft_parse(int argc, char **argv)
 {
 	t_stack	*stack_a;
-	int		i;
-	int		j;
 
-	i = 1;
 	stack_a = NULL;
 	if (argc < 2)
 		ft_error();
@@ -50,11 +47,8 @@ t_stack	*ft_parse_args_quoted(char **argv)
 {
 	t_stack	*stack_a;
 	char	**tmp;
-	int		i;
-	int		j;
 
 	stack_a = NULL;
-	i = 0;
 	tmp = ft_split(argv[1], 32);
 	list_args(tmp, &stack_a);
 	ft_freestr(tmp);
