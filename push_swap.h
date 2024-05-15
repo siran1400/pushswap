@@ -6,7 +6,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
+# include "libft/libft.h"
 
 typedef struct s_stack
 {
@@ -40,7 +40,6 @@ void		ft_ss(t_stack **a, t_stack **b, int j);
 void		ft_rr(t_stack **a, t_stack **b, int j);
 void		ft_rrr_sub(t_stack **b, int j);
 void		ft_rrr(t_stack **a, t_stack **b, int j);
-t_stack		*ft_lstlast(t_stack *lst);
 int			ft_lstsize(t_stack *lst);
 int			ft_min(t_stack *a);
 int			ft_max(t_stack *a);

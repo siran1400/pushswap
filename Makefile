@@ -3,8 +3,8 @@ NAME = push_swap
 BONUS = checker
 CC = cc
 RM = rm -f
-FLAGS = -Wall -Werror -Wextra -Wno-nullability-completeness
-LIBFT_FLAGS = -Wall -Werror -Wextra -Wno-nullability-completeness
+FLAGS = -Wall -Werror -Wextra 
+LIBFT_FLAGS = -Wall -Werror -Wextra 
 LIBFTDIR = ./libft
 
 SRC_1 = push_swap.c \
@@ -28,34 +28,35 @@ SRC_2 =	add_back.c \
 		utils1.c \
 		utils2.c \
 
-BONUS_SRC = /checker/checker.c \
-			/checker/checker-utils.c \
+# BONUS_SRC = /checker/checker.c \
+# 			/checker/checker-utils.c \
 
 
 OBJ_1 = ${SRC_1:.c=.o}
 OBJ_2 = ${SRC_2:.c=.o}
 
-BONUS_OBJ =${BONUS_SRC:.c=.o}
+# BONUS_OBJ =${BONUS_SRC:.c=.o}
 
 INCLUDE = -L ./libft -lft
 
+all: ${NAME} #${BONUS}
+
 libft:
-	make -C $(LIBFTDIR) FLAGS="${LIBFT_FLAGS}"
+	make -C $(LIBFTDIR) 
 .c.o:
 	${CC} -c $< -o $@ $(FLAGS)
 
 ${NAME}: ${OBJ_1} ${OBJ_2} libft
 	${CC} ${FLAGS} ${OBJ_1} ${OBJ_2} -o ${NAME} ${INCLUDE}
 
-${BONUS}: ${OBJ_2} ${BONUS_OBJ} libft
-	${CC} ${FLAGS} ${BONUS_OBJ} ${OBJ_2} -o ${BONUS} ${INCLUDE}
+# ${BONUS}: ${OBJ_2} ${BONUS_OBJ} libft
+	# ${CC} ${FLAGS} ${BONUS_OBJ} ${OBJ_2} -o ${BONUS} ${INCLUDE}
 
-all: ${NAME} ${BONUS}
 
-bonus: ${BONUS}
+#bonus: ${BONUS}
 
 clean:
-	${RM} ${OBJ_1} ${OBJ_2} ${BONUS_OBJ} ${NAME} ${BONUS}
+	${RM} ${OBJ_1} ${OBJ_2} ${NAME} #${BONUS} ${BONUS_OBJ}
 	@cd $(LIBFTDIR) && $(MAKE) clean
 
 fclean: clean
